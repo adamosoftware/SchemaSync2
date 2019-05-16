@@ -45,12 +45,10 @@ namespace Tests
             };
 
             var diff = source.Merge(target);
-
-            var results = diff.ToArray();
-
-            // should create dbo.Table1
-            Assert.IsTrue(results.Length == 1 && results[0].Equals(table1) && results[0].Action == ScriptAction.Create);
-
+            
+            Assert.IsTrue(diff.Create.Contains(table1));
+            Assert.IsTrue(!diff.Drop.Any());
+            Assert.IsTrue(!diff.Alter.Any());
         }
     }
 }

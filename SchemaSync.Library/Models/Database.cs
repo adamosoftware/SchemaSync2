@@ -10,7 +10,7 @@ namespace SchemaSync.Library.Models
         public IEnumerable<Table> Tables { get; set; }
         public IEnumerable<ForeignKey> ForeignKeys { get; set; }
 
-        public IEnumerable<DbObject> Merge(Database target)
+        public Comparison Merge(Database target)
         {
             throw new NotImplementedException();
         }
